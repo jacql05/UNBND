@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="UNBND - Unleash Your Potential" />
+    <meta name="theme-color" content="#000000" />
+    <title>UNBND - Unleash Your Potential</title>
+  </head>
+  <body>
+    <!-- Header with Language Switch -->
+    <header id="header" class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <h1>UNBND</h1>
+        </div>
+        <div class="nav-actions">
+          <div id="language-switch" class="language-switch">
+            <button id="lang-en" class="lang-btn active" data-lang="en">EN</button>
+            <button id="lang-zh" class="lang-btn" data-lang="zh">中</button>
+          </div>
+        </div>
+      </nav>
+      <div id="scroll-progress" class="scroll-progress"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="app">
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <div class="hero-content">
+          <h1 id="hero-title" data-i18n="hero.title">Unleash Your Potential</h1>
+          <p id="hero-subtitle" data-i18n="hero.subtitle">Transform your business with our innovative solutions</p>
+          <div class="hero-actions">
+            <button id="hero-cta" class="btn btn-primary" data-i18n="hero.cta">Get Started</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section">
+        <div class="container">
+          <h2 id="about-title" data-i18n="about.title">About UNBND</h2>
+          <p id="about-description" data-i18n="about.description">We help businesses unlock their true potential through cutting-edge technology and innovative strategies.</p>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="section">
+        <div class="container">
+          <h2 id="services-title" data-i18n="services.title">Our Services</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <h3 data-i18n="services.web.title">Web Development</h3>
+              <p data-i18n="services.web.description">Custom web solutions tailored to your needs</p>
+            </div>
+            <div class="service-card">
+              <h3 data-i18n="services.mobile.title">Mobile Apps</h3>
+              <p data-i18n="services.mobile.description">Native and cross-platform mobile applications</p>
+            </div>
+            <div class="service-card">
+              <h3 data-i18n="services.consulting.title">Consulting</h3>
+              <p data-i18n="services.consulting.description">Strategic technology consulting for your business</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews Section -->
+      <section id="reviews" class="section">
+        <div class="container">
+          <h2 id="reviews-title" data-i18n="reviews.title">What Our Clients Say</h2>
+          <div id="reviews-rotator" class="reviews-rotator">
+            <div class="review active">
+              <p data-i18n="reviews.review1.text">"UNBND transformed our digital presence completely. Highly recommended!"</p>
+              <cite data-i18n="reviews.review1.author">- Sarah Johnson, CEO</cite>
+            </div>
+            <div class="review">
+              <p data-i18n="reviews.review2.text">"Professional, efficient, and innovative. Exactly what we needed."</p>
+              <cite data-i18n="reviews.review2.author">- Michael Chen, CTO</cite>
+            </div>
+            <div class="review">
+              <p data-i18n="reviews.review3.text">"Outstanding results and exceptional customer service."</p>
+              <cite data-i18n="reviews.review3.author">- Emma Williams, Founder</cite>
+            </div>
+          </div>
+          <div class="review-indicators">
+            <button class="indicator active" data-index="0"></button>
+            <button class="indicator" data-index="1"></button>
+            <button class="indicator" data-index="2"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Melbourne Countdown Section -->
+      <section id="countdown" class="section countdown-section">
+        <div class="container">
+          <h2 id="countdown-title" data-i18n="countdown.title">Next Melbourne Event</h2>
+          <div id="countdown-timer" class="countdown-timer">
+            <div class="time-unit">
+              <span id="days">00</span>
+              <label data-i18n="countdown.days">Days</label>
+            </div>
+            <div class="time-unit">
+              <span id="hours">00</span>
+              <label data-i18n="countdown.hours">Hours</label>
+            </div>
+            <div class="time-unit">
+              <span id="minutes">00</span>
+              <label data-i18n="countdown.minutes">Minutes</label>
+            </div>
+            <div class="time-unit">
+              <span id="seconds">00</span>
+              <label data-i18n="countdown.seconds">Seconds</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Agency Spotlight -->
+      <section id="agency-spotlight" class="section agency-spotlight" style="display: none;">
+        <div class="container">
+          <div class="spotlight-content">
+            <h2 data-i18n="spotlight.title">Featured Agency Partnership</h2>
+            <p data-i18n="spotlight.description">We're excited to announce our new partnership with leading industry experts.</p>
+            <button id="spotlight-close" class="btn btn-secondary" data-i18n="spotlight.close">Close</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Contact FABs -->
+    <div id="contact-fabs" class="contact-fabs">
+      <button id="fab-toggle" class="fab fab-main" title="Contact Us">
+        <span>💬</span>
+      </button>
+      <div id="fab-menu" class="fab-menu">
+        <a id="whatsapp-link" href="#" class="fab fab-whatsapp" title="WhatsApp" target="_blank">
+          <span>📱</span>
+        </a>
+        <a id="telegram-link" href="#" class="fab fab-telegram" title="Telegram" target="_blank">
+          <span>✈️</span>
+        </a>
+        <button id="wechat-toggle" class="fab fab-wechat" title="WeChat">
+          <span>💚</span>
+        </button>
+        <a id="calendly-link" href="#" class="fab fab-calendly" title="Schedule Meeting" target="_blank">
+          <span>📅</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- WeChat QR Modal -->
+    <div id="wechat-modal" class="modal">
+      <div class="modal-content">
+        <button id="wechat-close" class="modal-close">&times;</button>
+        <h3 data-i18n="contact.wechat.title">Scan QR Code for WeChat</h3>
+        <div class="qr-placeholder">
+          <p data-i18n="contact.wechat.instruction">QR Code placeholder</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
