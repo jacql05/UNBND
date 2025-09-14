@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>UNBND — Personal Brand & Ads for Independent Entertainers</title>
+  <meta name="description" content="UNBND builds personal brands and high-ROI ad campaigns for independent entertainers. Starter $400/mo. Compliance-first. Multilingual. Fast setup." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="UNBND — Personal Brand & Ads" />
+  <meta property="og:description" content="Branding + ads for independent entertainers. Compliance-first. Starter $400/mo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/0b0b0d/ffffff&text=UNBND" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root{--bg:#0b0b0d;--card:#121216;--muted:#9aa0a6;--text:#eaecef;--brand:#5cffc8;--accent:#8ab4f8;--danger:#ff6b6b}
+    html{scroll-behavior:smooth}
+    *,*:before,*:after{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(8px);background:rgba(11,11,13,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800}
+    .brand-dot{width:10px;height:10px;border-radius:50%;background:var(--brand);}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);padding:10px 14px;border-radius:14px}
+    .btn.primary{background:linear-gradient(135deg,#00c853,#b2ff59 60%);color:#08110d;border:none;font-weight:700}
+    .btn.secondary{background:linear-gradient(135deg,#4f46e5,#8ab4f8 60%);color:#0b0b0d;border:none;font-weight:700}
+    
+    .hero .btn.primary,.hero .btn.secondary,.wrap .btn.primary[href='#apply']{animation:none}
+    .btn.bookcall{background:linear-gradient(135deg,#ff6b6b,#ffb36b);color:#fff;border:none;font-weight:700}
+    
+    .btn.ghost{background:transparent}
+    .hero{padding:64px 0 28px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .hero h1{font-size:clamp(28px,6vw,56px);line-height:1.02;margin:0 0 12px}
+    .hero p{color:var(--muted);font-size:clamp(14px,2.4vw,18px);margin:0 0 18px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+    .badge{padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;font-size:12px;color:#c7cbd1}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media(max-width:920px){.grid.cols-3{grid-template-columns:1fr}.grid.cols-2{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.00));border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+    .list li{display:flex;gap:10px;align-items:flex-start;color:#cfd3d8}
+    .tick{width:18px;height:18px;border-radius:6px;background:rgba(92,255,200,.15);border:1px solid rgba(92,255,200,.35)}
+    section{padding:28px 0}
+    .section-title{font-size:22px;margin:0 0 12px}
+    .price{font-size:40px;font-weight:800}
+    .strike{color:#97a1a8;text-decoration:line-through;margin-left:8px;font-weight:500;font-size:18px}
+    .foot{padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:#a7adb4}
+    /* sticky mobile cta */
+    .mobile-cta{position:fixed;left:0;right:0;bottom:10px;display:none;gap:10px;z-index:60}
+    .mobile-cta .wrap{display:flex;gap:8px}
+    @media(max-width:920px){.mobile-cta{display:block}}
+    /* social proof ticker */
+    .ticker{position:fixed;left:10px;bottom:80px;background:#101215;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:10px 12px;display:flex;gap:10px;align-items:center;z-index:55}
+    .ticker .dot{width:8px;height:8px;border-radius:50%;background:var(--brand)}
+    .close{cursor:pointer;border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:2px 6px;font-size:12px;color:#cbd1d8}
+    /* progress bar */
+    #progressBar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--accent));width:0;z-index:80}
+      /* contact floating buttons */
+    .contact-fabs{position:fixed;right:16px;bottom:96px;display:flex;flex-direction:column;gap:10px;z-index:70}
+    .fab{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid rgba(255,255,255,.14);box-shadow:0 6px 24px rgba(0,0,0,.35);cursor:pointer}
+    .fab svg{width:26px;height:26px;fill:#cfe3d8}
+    .wechat-card{position:fixed;right:80px;bottom:96px;background:#0f1216;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px;width:240px;z-index:75;box-shadow:0 10px 28px rgba(0,0,0,.45)}
+    .wechat-card h4{margin:0 0 6px;font-size:16px}
+    .wechat-card p{margin:0 0 10px;color:#c7cbd1;font-size:14px}
+    .wechat-card img{display:block;width:180px;height:180px;border-radius:12px;border:1px solid rgba(255,255,255,.08);margin:0 auto 8px}
+      /* .btn.flash disabled */
+      /* countdown */
+    .countdown{margin-top:10px;font-size:14px;color:#c7cbd1}
+    .countdown strong{color:#eaecef}
+      .promo-note{margin-top:6px;font-size:13px;color:var(--danger)}
+      .promo-inline{grid-column:1 / -1;text-align:center;font-weight:800;color:var(--danger);padding:4px 8px;margin-bottom:8px}
+      .top-countdown{position:fixed;top:3px;left:0;right:0;z-index:79;background:rgba(11,11,13,.75);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid rgba(255,255,255,.08);text-align:center;font-weight:700;font-size:13px;padding:6px 10px}
+    .top-countdown strong{color:#eaecef}
+      .nav-countdown{margin-left:12px;font-weight:700;font-size:12px;color:var(--danger)}
+      .nav-center{flex:1;display:flex;justify-content:center}
+      /* reviews */
+    .review .review-text{font-size:16px;color:#eaecef}
+    .review .review-meta{font-size:14px;color:#9aa0a6}
+      /* Premium blur */
+    .premium-card .list li{filter:blur(1.2px);opacity:.6}
+    .premium-card .list li.highlight{filter:none;opacity:1}
+      /* hero image layout */
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:center}
+    .hero-visual img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 26px rgba(0,0,0,.35)}
+    @media(max-width:920px){.hero-grid{grid-template-columns:1fr}}
+      .eyebrow{font-size:14px;color:#9aa0a6;margin-bottom:6px}
+      /* Complete-only guarantee highlight */
+    .guarantee-note{margin-top:10px;font-size:13px;color:#c7cbd1;border:1px solid rgba(255,107,107,.35);border-radius:12px;padding:8px 10px;box-shadow:0 0 0 0 rgba(255,107,107,0);animation:guarPulse 1.8s ease-in-out infinite}
+    .guarantee-note .flame{display:inline-block;margin-right:6px;animation:firePulse 1.2s ease-in-out infinite}
+    @keyframes guarPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,107,107,0)}50%{box-shadow:0 0 18px 2px rgba(255,107,107,.35)}}
+    @keyframes firePulse{0%,100%{filter:drop-shadow(0 0 0 rgba(255,107,107,0));transform:translateY(0)}50%{filter:drop-shadow(0 0 8px rgba(255,107,107,.8));transform:translateY(-1px)}}
+      /* Complete card fire motion */
+    .card-hot{position:relative;border-color:rgba(255,107,107,.45);box-shadow:0 0 0 1px rgba(255,107,107,.28),0 0 22px rgba(255,107,107,.20);animation:hotPulse 1.6s ease-in-out infinite}
+    @keyframes hotPulse{0%,100%{box-shadow:0 0 0 1px rgba(255,107,107,.28),0 0 16px rgba(255,107,107,.16)}50%{box-shadow:0 0 0 1px rgba(255,179,107,.6),0 0 34px rgba(255,179,107,.38)}}
+    .corner-ribbon{position:absolute;top:12px;right:-38px;transform:rotate(45deg);background:linear-gradient(135deg,#ff6b6b,#ffb36b);color:#0b0b0d;padding:6px 78px;font-weight:800;font-size:12px;letter-spacing:.3px;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .hot-sub{margin:6px 0 0;font-weight:700;color:#ffb36b;display:flex;align-items:center;gap:6px}
+    .hot-sub .flame,.corner-ribbon .flame{animation:firePulse 1.2s ease-in-out infinite}
+      /* language switcher */
+    nav.hide-mobile{position:relative}
+    .lang-switch svg{width:18px;height:18px;fill:#cbd1d8}
+    .lang-menu{position:absolute;right:0;top:calc(100% + 8px);background:#101215;border:1px solid rgba(255,255,255,.12);border-radius:14px;box-shadow:0 10px 28px rgba(0,0,0,.45);padding:8px;display:grid;gap:6px;min-width:200px;z-index:90}
+    .lang-menu button{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:transparent;border:1px solid rgba(255,255,255,.12);color:#eaecef;padding:8px 10px;border-radius:10px;cursor:pointer}
+    .lang-menu button:hover{border-color:rgba(255,255,255,.25)}
+    .lang-menu[hidden]{display:none !important}
+      .lang-wrap{position:relative;display:inline-block}
+    .lang-switch .label{font-size:12px;color:#cbd1d8}
+      [id]{scroll-margin-top:80px}
+      /* agencies contact menu */
+    .agency-wrap{position:relative;display:inline-block}
+    .agency-menu{position:absolute;right:0;top:calc(100% + 8px);background:#101215;border:1px solid rgba(255,255,255,.12);border-radius:14px;box-shadow:0 10px 28px rgba(0,0,0,.45);padding:8px;display:grid;gap:6px;min-width:220px;z-index:90}
+    .agency-menu[hidden]{display:none!important}
+    .agency-menu a,.agency-menu button{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:transparent;border:1px solid rgba(255,255,255,.12);color:#eaecef;padding:8px 10px;border-radius:10px;cursor:pointer;text-align:left}
+    .agency-menu a:hover,.agency-menu button:hover{border-color:rgba(255,255,255,.25)}
+      /* contact pulse */
+    .contact-fabs.pulse .fab{animation:contactPulse 1.2s ease-in-out 3}
+    @keyframes contactPulse{0%,100%{box-shadow:0 6px 24px rgba(0,0,0,.35)}50%{box-shadow:0 0 24px rgba(138,180,248,.6)}}
+      /* continuous attention until click */
+    .contact-fabs.attn .fab{animation:contactPulse 1.2s ease-in-out infinite}
+    @media (prefers-reduced-motion: reduce){.contact-fabs .fab{animation:none!important}}
+      
+      /* contact hover emphasis */
+    .contact-fabs .fab{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background-color .18s ease,filter .18s ease}
+    .contact-fabs:hover .fab{opacity:.7;filter:saturate(.9)}
+    .contact-fabs .fab:hover,.contact-fabs .fab:focus-visible{opacity:1;transform:translateY(-3px) scale(1.08);box-shadow:0 16px 48px rgba(138,180,248,.35);border-color:rgba(138,180,248,.5);background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));animation:none!important;filter:none}
+    .fab{position:relative}
+    /* hover ring */
+    .contact-fabs .fab:hover::before,.contact-fabs .fab:focus-visible::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(138,180,248,.6);box-shadow:0 0 28px rgba(138,180,248,.5)}
+    /* hover tooltip */
+    .contact-fabs .fab::after{content:attr(data-label);position:absolute;right:62px;top:50%;transform:translateY(-50%) scale(.94);background:#0a0c0f;border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:8px 12px;color:#ffffff;font-size:13px;font-weight:500;white-space:nowrap;opacity:0;pointer-events:none;box-shadow:0 10px 32px rgba(0,0,0,.5);transition:opacity .2s,transform .2s}
+    .contact-fabs .fab:hover::after,.contact-fabs .fab:focus-visible::after{opacity:1;transform:translateY(-50%) scale(1)}
+  </style>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script>window.CAL_URL='https://calendly.com/unbnd/intro-15';</script>
+
+<style id="agencySpotlightStyle">
+/* 强提示：脉冲 + 震动 + 聚光灯 */
+.contact-fabs.pulse .fab{animation:contactPulse 1.2s ease 3}
+@keyframes contactPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}50%{box-shadow:0 0 0 14px rgba(255,255,255,.22)}}
+.fab.shake{animation:shake .75s ease-in-out 2;transform-origin:center right}
+@keyframes shake{0%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}100%{transform:translateX(0)}}
+.spotlight-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:saturate(120%) blur(2px);z-index:80}
+.spotlight-ring{position:fixed;border:2px solid rgba(255,255,255,.9);border-radius:16px;box-shadow:0 0 24px rgba(255,255,255,.45),0 8px 40px rgba(0,0,0,.6);z-index:81;pointer-events:none;animation:ringpop .28s ease}
+@keyframes ringpop{from{transform:scale(.92);opacity:.7}to{transform:scale(1);opacity:1}}
+.spotlight-label{position:fixed;z-index:81;background:#111;color:#fff;border:1px solid rgba(255,255,255,.18);padding:8px 12px;border-radius:12px;font-size:14px;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.spotlight-arrow{position:fixed;z-index:81;font-size:28px}
+</style>
+</head>
+<body>
+  <div id="progressBar" aria-hidden="true"></div>
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Primary">
+      <div class="brand"><span class="brand-dot" aria-hidden="true"></span> UNBND</div>
+      <div class="nav-center"><span class="nav-countdown" id="navCountdown" data-deadline="2025-09-30T23:59:59+10:00">Promo Ends in <strong class="dd">00</strong>d <strong class="hh">00</strong>h <strong class="mm">00</strong>m <strong class="ss">00</strong>s</span></div>
+      <nav class="hide-mobile">
+        <div class="lang-wrap" id="langWrap">
+          <button class="btn ghost lang-switch" id="langSwitch" aria-haspopup="menu" aria-expanded="false" aria-controls="langMenu" title="Language">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm7.93 9h-3.18a15.356 15.356 0 00-1.11-5A8.013 8.013 0 0119.93 11zM12 4a13.4 13.4 0 011.92 6H10.08A13.4 13.4 0 0112 4zM4.07 13h3.18a15.356 15.356 0 001.11 5A8.013 8.013 0 014.07 13zM7.25 11H4.07A8.013 8.013 0 018.36 6a15.356 15.356 0 00-1.11 5zM12 20a13.4 13.4 0 01-1.92-6h3.84A13.4 13.4 0 0112 20zm3.64-2a15.356 15.356 0 001.11-5h3.18a8.013 8.013 0 01-4.29 5z"/></svg>
+            <span id="langLabel" class="label">EN</span>
+          </button>
+          <div id="langMenu" class="lang-menu" role="menu" hidden>
+            <button role="menuitem" data-lang="en">EN <span aria-hidden="true">🇦🇺</span></button>
+            <button role="menuitem" data-lang="zh">中文 <span aria-hidden="true">🇨🇳</span></button>
+            <button role="menuitem" data-lang="ja">日本語 <span aria-hidden="true">🇯🇵</span></button>
+            <button role="menuitem" data-lang="ko">한국어 <span aria-hidden="true">🇰🇷</span></button>
+            <button role="menuitem" data-lang="id">Bahasa <span aria-hidden="true">🇮🇩</span></button>
+          </div>
+        </div>
+        <a class="btn ghost" href="#plans">Pricing</a>
+        <a class="btn ghost" href="#results">Results</a>
+        <a class="btn primary" href="#apply">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+        <div class="eyebrow">Stuck with cheap clients?</div>
+        <h1>Target your market. Create your value.</h1>
+        <p>We build your brand and run compliant campaigns on top directories, with AI translation support. Fast launch. Continuous optimization.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="wrap grid cols-3">
+        <div class="card">
+          <h3>Best fit</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Independent entertainers rebranding or scaling</span></li>
+            <li><span class="tick"></span><span>Agencies (2–10 talent)</span></li>
+          </ul>
+          <h3 style="margin:10px 0 6px">Not for</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Explicit content or scraped data</span></li>
+            <li><span class="tick"></span><span>No budget discipline</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>72‑Hour Launch</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Day 1: intake + copy</span></li>
+            <li><span class="tick"></span><span>Day 2: approvals pack + creatives</span></li>
+            <li><span class="tick"></span><span>Day 3: go live + tracking</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>60‑Day Guarantee</h3>
+          <p style="color:#c7cbd1;margin:0">If no qualified inquiries after the agreed budget and approvals, we extend work or refund the service fee. T&Cs apply.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="wrap">
+        <h2 class="section-title">What clients say</h2>
+        <div class="card review" id="reviewCard">
+          <p class="review-text" style="margin:0 0 6px">Launch was fast. Approval‑safe copy.</p>
+          <div class="review-meta">— L., Melbourne</div>
+        </div>
+        <p class="muted" style="margin:8px 0 0;color:#9aa0a6;font-size:13px">Privacy protected. Results vary.</p>
+        <div id="reviewAdmin" hidden class="card" style="margin-top:12px">
+          <h3>Add review (admin)</h3>
+          <form id="reviewForm" onsubmit="return false" style="display:flex;gap:8px;flex-wrap:wrap">
+            <input name="text" placeholder="Short quote" style="flex:2;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0f1114;color:#eaecef"/>
+            <input name="initials" placeholder="Initials (e.g., J.)" style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0f1114;color:#eaecef"/>
+            <input name="city" placeholder="City (e.g., Sydney)" style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0f1114;color:#eaecef"/>
+            <button class="btn primary" type="submit">Add</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="wrap grid cols-3">
+        <div class="card">
+          <h3>Faster launch</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Profile + copy ready in days</span></li>
+            <li><span class="tick"></span><span>Ad creatives and keywords prebuilt</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Safer ads</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Content checks against Australian ad rules</span></li>
+            <li><span class="tick"></span><span>Directory placements that actually approve</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Smarter growth</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Monthly refresh on copy and photos</span></li>
+            <li><span class="tick"></span><span>Language expansions for new markets</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="transform">
+      <div class="wrap grid cols-2">
+        <div class="card">
+          <h3>Before</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Generic listing, English‑only</span></li>
+            <li><span class="tick"></span><span>Frequent ad or directory rejections</span></li>
+            <li><span class="tick"></span><span>Many low‑value inquiries and cancellations</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>After</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span><strong>AI Translation:</strong> handle clients without language barriers</span></li>
+            <li><span class="tick"></span><span><strong>Premium Positioning:</strong> visual direction signals premium without exposure</span></li>
+            <li><span class="tick"></span><span><strong>Compliance First:</strong> AU‑specific copy passes common directory rules</span></li>
+            <li><span class="tick"></span><span><strong>Quality Focus:</strong> targeting prioritizes discretion and quality</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans">
+      <div class="wrap grid cols-3">
+        <div class="section-title" style="grid-column:1 / -1; display:flex; justify-content:space-between; align-items:center"><h2 style="margin:0;font:inherit">Investment &amp; Value</h2><a href="#contact" id="agencyLink" style="font-size:13px;color:#9aa0a6;text-decoration:underline">Agencies: please inquire for a customized package</a></div>
+
+        <!-- Starter -->
+        <div class="card">
+          <h3>Starter Plan</h3>
+          <div class="price">$400<span class="strike">$600</span> / month</div>
+          <ul class="list" style="margin-top:8px">
+            <li><span class="tick"></span><span>Ad placement and budget management</span></li>
+            <li><span class="tick"></span><span>Monthly content updates</span></li>
+            <li><span class="tick"></span><span>Compliance review</span></li>
+            <li><span class="tick"></span><span>AI translation support <span aria-label="English">🇦🇺</span> <span aria-label="Chinese">🇨🇳</span> <span aria-label="Japanese">🇯🇵</span> <span aria-label="Korean">🇰🇷</span> <span aria-label="Indonesian">🇮🇩</span> — customized tone per market</span></li>
+          </ul>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn primary" href="#apply">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Complete -->
+        <div class="card card-hot">
+          <h3>Complete Package</h3>
+          <div class="price">$650<span class="strike">$1000</span> / month</div>
+          <div class="hot-sub"><span class="flame" aria-hidden="true">🔥</span> Feel the difference</div>
+          <ul class="list" style="margin-top:8px">
+            <li><span class="tick"></span><span>Everything in Starter</span></li>
+            <li><span class="tick"></span><span>Monthly photoshoot planning + shot list</span></li>
+            <li><span class="tick"></span><span>On‑brand retouching set (10‑20 images)</span></li>
+            <li><span class="tick"></span><span>Usage‑safe delivery for ads + directories</span></li>
+            <li><span class="tick"></span><span>Talent coordination and location guide</span></li>
+            <li><span class="tick"></span><span>Makeup & hairstylist for shoots</span></li>
+          </ul>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn primary" href="#apply">Apply Now</a>
+          </div>
+          <div class="guarantee-note">60‑Day Results Guarantee — <strong>Complete package only</strong></div>
+        </div>
+
+        <!-- Premium -->
+        <div class="card premium-card">
+          <h3>Premium Plan</h3>
+          <div class="price">Launching soon</div>
+          <p class="muted" style="margin:4px 0 0;color:#9aa0a6;font-size:13px"><a href="#book" style="color:#9aa0a6;text-decoration:underline">Agencies: please inquire for a customized package</a></p>
+          <ul class="list" style="margin-top:8px">
+            <li><span class="tick"></span><span>Automated audience targeting beyond in‑platform ads</span></li>
+            <li><span class="tick"></span><span>Customized chatbot for lead capture + FAQs</span></li>
+            <li class="highlight"><span class="tick"></span><span>Early access for Starter clients with 20% upgrade credit</span></li>
+            <li class="highlight"><span class="tick"></span><span>Function testing in advanced</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="terms">
+      <div class="wrap grid cols-2">
+        <div class="card">
+          <h3>Flexible Terms</h3>
+          <p style="margin:6px 0 0;color:#9aa0a6">No setup fees or long‑term contracts.</p>
+        </div>
+        <div class="card">
+          <h3>Success Partnership</h3>
+          <p style="margin:6px 0 0;color:#9aa0a6">Dedicated support throughout your growth.</p>
+        </div>
+        <div class="card" style="grid-column:1 / -1">
+          <p style="margin:0 0 6px">✓ ACMA Compliant &nbsp; ✓ Privacy Protected &nbsp; ✓ Cancel Anytime &nbsp; ✓ Results Focused</p>
+          <p style="margin:0;color:#9aa0a6">Exclusions: Third‑party listing fees and paid‑ads budgets.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="personas">
+      <div class="wrap grid cols-3">
+        <h2 class="section-title" style="grid-column:1 / -1">Who we help</h2>
+        <p style="grid-column:1 / -1;margin:0 0 8px;color:#9aa0a6">We deliver service across Australia.</p>
+
+        <div class="card">
+          <h3>Rebrander (Independent)</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Goal: premium positioning, higher rates</span></li>
+            <li><span class="tick"></span><span>Triggers: outdated photos, rejections, new city</span></li>
+            <li><span class="tick"></span><span>Fit: <strong>Complete</strong> — photographer + MUA/Hair</span></li>
+            <li><span class="tick"></span><span>Channels: Google + approving directories</span></li>
+          </ul>
+          
+        </div>
+
+        <div class="card">
+          <h3>New‑to‑Ads Upgrader</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Goal: first consistent pipeline</span></li>
+            <li><span class="tick"></span><span>Triggers: social ad rejections, low inquiries</span></li>
+            <li><span class="tick"></span><span>Fit: <strong>Starter</strong> now → upgrade to Complete</span></li>
+            <li><span class="tick"></span><span>KPIs: time‑to‑first inquiry, approval %</span></li>
+          </ul>
+          
+        </div>
+
+        <div class="card">
+          <h3>Agency Manager (2‑10 talent)</h3>
+          <ul class="list">
+            <li><span class="tick"></span><span>Goal: steady leads per talent, governance</span></li>
+            <li><span class="tick"></span><span>Triggers: onboarding, prior bans</span></li>
+            <li><span class="tick"></span><span>Fit: <strong>Complete</strong> per talent; path to Premium</span></li>
+            <li><span class="tick"></span><span>Needs: reporting, compliance SOP</span></li>
+          </ul>
+          
+        </div>
+
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <h2 class="section-title">FAQ</h2>
+        <details>
+          <summary>Do you handle bookings?</summary>
+          <div>No. We don't process bookings. We drive qualified traffic to your WhatsApp / WeChat / Telegram or calendar link. On request, we can set up auto‑replies and booking widgets that hand off to you.</div>
+        </details>
+        <details>
+          <summary>When do results show?</summary>
+          <div>After launch, first inquiries typically appear in 3‑10 days (platform approvals + budget dependent). Expect steadier performance after 2‑4 weeks of optimization.</div>
+        </details>
+        <details>
+          <summary>What about paid ads?</summary>
+          <div>Ad spend is separate. You pay platforms directly. We manage targeting, creatives, compliance, and optimization to your budget cap.</div>
+        </details>
+        <details>
+          <summary>Languages?</summary>
+          <div>We support EN / 中文 / 日本語 / 한국어 / Bahasa Indonesia with market‑specific tone and phrasing.</div>
+        </details>
+        <details>
+          <summary>Is photography required?</summary>
+          <div>Not required, but recommended for rebranding. Complete Package includes photographer + makeup & hairstylist. We can also work with your existing photos.</div>
+        </details>
+        <details>
+          <summary>Can you remove bad reviews?</summary>
+          <div>No. We follow platform policies. We help you report policy‑violating reviews, craft professional responses, and push down negatives with fresh content, SEO, and ads.</div>
+        </details>
+        <details>
+          <summary>Is this compliant in Australia?</summary>
+          <div>Yes. We use a checklist aligned to Australian advertising rules and screen content before ads go live.</div>
+        </details>
+        <details>
+          <summary>How fast can I go live?</summary>
+          <div>Most first campaigns go live in 3‑5 business days after onboarding.</div>
+        </details>
+        <details>
+          <summary>Do you work with agencies?</summary>
+          <div>Yes. We support independents and agencies with separate playbooks.</div>
+        </details>
+      </div>
+    </section>
+    <!-- Anchor targets for navbar links -->
+    <div id="apply" class="anchor" aria-hidden="true"></div>
+    <div id="book" class="anchor" aria-hidden="true"></div>
+    <div id="contact" class="anchor" aria-hidden="true"></div>
+
+      <!-- Floating contact icons -->
+    <div class="contact-fabs" aria-label="Contact options">
+      <a id="waFab" class="fab" data-label="WhatsApp" href="https://wa.me/yournumber" target="_blank" rel="noopener" aria-label="WhatsApp chat" title="WhatsApp">
+        <!-- WhatsApp SVG -->
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.8c0 2.5.8 4.8 2.2 6.7L5.2 29l7-1.8c1.8 1 3.9 1.6 6 1.6 6.6 0 12-5.3 12-11.8S22.6 3 16 3zm0 21.4c-1.9 0-3.7-.5-5.2-1.5l-.4-.2-3.1.8.8-3-.2-.4c-1-1.5-1.5-3.2-1.5-5 0-5.1 4.3-9.2 9.6-9.2s9.6 4.1 9.6 9.2-4.3 9.3-9.6 9.3zm5-5.4c-.3-.1-1.9-1-2.2-1.1-.3-.1-.5-.2-.8.2s-1 1.1-1.2 1.3-.5.2-.8.1-1.6-.6-3-1.8c-1.1-1-1.8-2.2-2-2.6s0-.6.1-.7.3-.3.4-.5c.2-.2.3-.3.5-.6.2-.2.1-.4 0-.6l-1-2.3c-.3-.6-.6-.5-.8-.5h-.7c-.2 0-.6.1-.9.4s-1.1 1-1.1 2.4 1.1 2.7 1.3 2.9c.2.2 2.1 3.1 5 4.3 1.9.8 2.6.9 3.6 1 .7.1 1.4.1 1.9.1.6 0 1.9-.7 2.2-1.4.3-.7.3-1.2.2-1.4-.1-.2-.3-.2-.6-.3z"/></svg>
+      </a>
+      <button class="fab" id="wechatFab" data-label="WeChat" aria-label="WeChat" title="WeChat" aria-controls="wechatCard" aria-expanded="false">
+        <!-- WeChat SVG (chat bubbles) -->
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M14 6c-5 0-9 3.4-9 7.6 0 1.9.8 3.7 2.2 5.1L6 24l5-1.6c1 .3 2.1.5 3 .5 5 0 9-3.4 9-7.6S19 6 14 6z"/>
+          <circle cx="12" cy="14" r="1.2"/><circle cx="16" cy="14" r="1.2"/>
+        </svg>
+      </button>
+      <a id="tgFab" class="fab" data-label="Telegram" href="https://t.me/yourtelegram" target="_blank" rel="noopener" aria-label="Telegram chat" title="Telegram">
+        <!-- Telegram SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 3L2 11l6.5 2.2L10 21l3.2-3.5L22 3zM9.2 12.9L19 6.4 11 14l-.7 2.8-1.1-3.9z"/></svg>
+      </a>
+      <a id="calFab" class="fab" data-label="Book a call" href="#" title="Book a call" aria-label="Book a call" onclick="if(window.Calendly){Calendly.initPopupWidget({url: window.CAL_URL});}else{window.location=window.CAL_URL;} return false;">
+        <!-- Calendar SVG -->
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M24 4h-2V2h-2v2H12V2h-2v2H8a4 4 0 00-4 4v18a4 4 0 004 4h16a4 4 0 004-4V8a4 4 0 00-4-4zm2 22a2 2 0 01-2 2H8a2 2 0 01-2-2V12h20zm0-16H6V8a2 2 0 012-2h2v2h2V6h8v2h2V6h2a2 2 0 012 2z"/></svg>
+      </a>
+    </div>
+
+    <div id="wechatCard" class="wechat-card" role="dialog" aria-modal="false" aria-labelledby="wechatTitle" hidden>
+      <h4 id="wechatTitle">WeChat</h4>
+      <p>Add ID: <strong>@yourwechat</strong></p>
+      <img src="https://dummyimage.com/180x180/1b1e23/ffffff&text=WeChat+QR" alt="WeChat QR code"/>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button class="close" onclick="(function(){document.getElementById('wechatCard').setAttribute('hidden','');const f=document.getElementById('wechatFab');if(f)f.setAttribute('aria-expanded','false');})()">Close</button>
+      
+    </div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">© UNBND. Compliance-first branding and ads for independent entertainers.</div>
+  </footer>
+
+  <script>
+    // progress bar on scroll
+    const pb=document.getElementById('progressBar');
+    document.addEventListener('scroll',()=>{
+      const h=document.documentElement;const sc=h.scrollTop;const mh=h.scrollHeight-h.clientHeight;pb.style.width=(sc/mh*100).toFixed(2)+'%';
+    }, {passive:true});
+    </script>
+  <script>
+    // WeChat card toggle
+    const wFab=document.getElementById('wechatFab');
+    const wCard=document.getElementById('wechatCard');
+    if(wFab&&wCard){
+      wFab.addEventListener('click',()=>{
+        const isHidden=wCard.hasAttribute('hidden');
+        if(isHidden){wCard.removeAttribute('hidden');wFab.setAttribute('aria-expanded','true');}
+        else{wCard.setAttribute('hidden','');wFab.setAttribute('aria-expanded','false');}
+      });
+      document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&!wCard.hasAttribute('hidden')){wCard.setAttribute('hidden','');wFab.setAttribute('aria-expanded','false');}});
+    }
+  </script>
+  <script>
+    // Countdown: hero + nav bar
+    (function(){
+      const navEl=document.getElementById('navCountdown');
+      const heroEl=document.getElementById('countdown');
+      const els=[heroEl, navEl].filter(Boolean);
+      if(!els.length) return;
+      const dl=(navEl && navEl.dataset.deadline) || (heroEl && heroEl.dataset.deadline) || '2025-09-30T23:59:59+10:00';
+      const deadline=new Date(dl);
+      function updateEl(el,d,h,m,s){
+        const dd=el.querySelector('#dd, .dd');
+        const hh=el.querySelector('#hh, .hh');
+        const mm=el.querySelector('#mm, .mm');
+        const ss=el.querySelector('#ss, .ss');
+        if(dd) dd.textContent=String(d).padStart(2,'0');
+        if(hh) hh.textContent=String(h).padStart(2,'0');
+        if(mm) mm.textContent=String(m).padStart(2,'0');
+        if(ss) ss.textContent=String(s).padStart(2,'0');
+        if(!dd && !hh && !mm && !ss){
+          el.textContent=`Pre‑launch promo ends in ${d}d ${h}h ${m}m ${s}s`;
+        }
+      }
+      function tick(){
+        const now=new Date();
+        let ms=deadline-now;
+        if(ms<=0){ els.forEach(el=> el.textContent='Pre‑launch promo ended'); return; }
+        const d=Math.floor(ms/86400000); ms%=86400000;
+        const h=Math.floor(ms/3600000); ms%=3600000;
+        const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000);
+        els.forEach(el=>updateEl(el,d,h,m,s));
+      }
+      tick();
+      setInterval(tick,1000);
+    })();
+  </script>
+  <script>
+    // Auto-rotating reviews with optional admin add via ?admin=1
+    (function(){
+      const KEY='unbnd_reviews';
+      const seed=[
+        {t:'First inquiries in 7 days. Copy passed approvals.', by:'J., Sydney'},
+        {t:'Fast rebrand. Higher rates within a month.', by:'A., Melbourne'},
+        {t:'KR + JP leads after multilingual rollout.', by:'K., Brisbane'},
+        {t:'Approved on first submission. No takedowns.', by:'M., Perth'},
+        {t:'WeChat inquiries up after translation.', by:'Y., Melbourne'},
+        {t:'Directory finally listed me. Traffic same week.', by:'T., Adelaide'},
+        {t:'Photos looked premium without overexposure.', by:'S., Gold Coast'},
+        {t:'Google + directories = steadier bookings.', by:'R., Sydney'},
+        {t:'Setup took under an hour on my side.', by:'C., Canberra'},
+        {t:'Better clients. Less "more pics" spam.', by:'N., Hobart'},
+        {t:'Bilingual scripts saved response time.', by:'H., Brisbane'},
+        {t:'Clear, compliant copy reduced stress.', by:'D., Perth'}
+      ];
+      let reviews=[];
+      try{reviews=JSON.parse(localStorage.getItem(KEY)||'[]')||[]}catch(e){reviews=[]}
+      if(!reviews.length){reviews=seed; localStorage.setItem(KEY, JSON.stringify(reviews));}
+      let i=0;
+      const card=document.getElementById('reviewCard');
+      if(!card) return;
+      const textEl=card.querySelector('.review-text');
+      const metaEl=card.querySelector('.review-meta');
+      if(!textEl||!metaEl) return;
+      function nextReview(){
+        if(!reviews.length) return;
+        const r=reviews[i%reviews.length];
+        textEl.textContent=r.t;
+        metaEl.textContent='— '+r.by;
+        i++;
+      }
+      nextReview();
+      setInterval(nextReview,8000);
+      if(/admin=1/.test(location.search)){
+        document.getElementById('reviewAdmin').removeAttribute('hidden');
+        const form=document.getElementById('reviewForm');
+        if(form){
+          form.addEventListener('submit',()=>{
+            const fd=new FormData(form);
+            const newR={t:fd.get('text')||'',by:(fd.get('initials')||'A')+', '+(fd.get('city')||'Sydney')};
+            if(newR.t.trim()){
+              reviews.push(newR);
+              localStorage.setItem(KEY,JSON.stringify(reviews));
+              form.reset();
+              nextReview();
+            }
+          });
+        }
+      }
+    })();
+  </script>
+
+<script id="agencyScrollFocus">
+(function(){
+  if (window.__UNBND_AgencyScrollFocus__) return;
+  window.__UNBND_AgencyScrollFocus__ = true;
+
+  function getFabs(){
+    return document.querySelector('.contact-fabs, .floating-contacts, #contactFabs, #contact, .contact-buttons, .contact-fab, .fab-container');
+  }
+  function isTrigger(el){
+    if (!el) return false;
+    if (el.classList && (el.classList.contains('agency-inquire') || el.hasAttribute('data-agency-inquire'))) return true;
+    var t=(el.textContent||'').replace(/\s+/g,' ').trim();
+    return /Agencies:\s*please inquire/i.test(t);
+  }
+  function findTriggers(){
+    var nodes=[].slice.call(document.querySelectorAll('a, button, [role="button"], .agency-inquire, [data-agency-inquire]'));
+    return nodes.filter(isTrigger);
+  }
+  function spotlight(fabs){
+    // Show spotlight only once per session
+    if (sessionStorage.agencyHintShown) return;
+    sessionStorage.agencyHintShown = "1";
+    
+    try{
+      var r=fabs.getBoundingClientRect(), pad=10;
+      var top=Math.max(8,r.top-pad), left=Math.max(8,r.left-pad);
+      var w=r.width+pad*2, h=r.height+pad*2;
+      var backdrop=document.createElement('div'); backdrop.className='spotlight-backdrop';
+      var ring=document.createElement('div'); ring.className='spotlight-ring';
+      Object.assign(ring.style,{top:top+'px',left:left+'px',width:w+'px',height:h+'px'});
+      var label=document.createElement('div'); label.className='spotlight-label'; label.textContent='Agency contact options';
+      Object.assign(label.style,{top:(top-50)+'px',right:'80px'});
+      var arrow=document.createElement('div'); arrow.className='spotlight-arrow'; arrow.textContent='→';
+      Object.assign(arrow.style,{top:(r.top+r.height/2-16)+'px',right:'140px',fontSize:'32px',color:'#fff'});
+      document.body.append(backdrop,ring,label,arrow);
+      function cleanup(){[backdrop,ring,label,arrow].forEach(function(el){if(el) el.remove();});}
+      backdrop.addEventListener('click',cleanup,{once:true});
+      setTimeout(cleanup,3000);
+    }catch(e){}
+  }
+  function trackAgencyInquire(){
+    if (window.gtag) gtag('event','agency_inquire_click',{location:'contact_fab'});
+    else if (window.dataLayer) dataLayer.push({event:'agency_inquire_click',location:'contact_fab'});
+  }
+  function focusFabs(){
+    var fabs=getFabs();
+    if(!fabs) return;
+    
+    // Respect reduced motion preference and avoid banner overlap
+    var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    try{ fabs.scrollIntoView({behavior: smooth?'smooth':'auto', block:'center', inline:'nearest'});}catch(e){}
+    
+    fabs.classList.add('pulse');
+    setTimeout(function(){fabs.classList.remove('pulse');},3600);
+    [].slice.call(fabs.querySelectorAll('.fab')).forEach(function(b,i){
+      setTimeout(function(){ b.classList.add('shake'); setTimeout(function(){ b.classList.remove('shake'); }, 1000); }, i*120);
+    });
+    spotlight(fabs);
+    
+    // Track analytics event
+    trackAgencyInquire();
+  }
+  function bind(){
+    var triggers=findTriggers();
+    triggers.forEach(function(el){
+      if (el.__unbndBound) return;
+      el.__unbndBound=true;
+      el.setAttribute('role','button');
+      el.setAttribute('tabindex','0');
+      el.addEventListener('click', function(e){ e.preventDefault(); focusFabs(); }, {passive:false});
+      el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); focusFabs(); } });
+    });
+  }
+  if (document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', bind, {once:true}); } else { bind(); }
+  var mo=new MutationObserver(bind);
+  mo.observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
+</body>
+</html>
